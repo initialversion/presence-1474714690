@@ -5,4 +5,6 @@ class User < ApplicationRecord
 
   # Validations
 
+  validates :status, :inclusion => { :in => [ 'pending', 'submitted', 'processed' ]  }
+
 end
