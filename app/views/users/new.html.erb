@@ -1,0 +1,82 @@
+<!-- Validation failure messages -->
+<% if @user.errors.any? %>
+  <% @user.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add User</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_user" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @user.name %>">
+      </div>
+
+      <!-- Label and input for last_name -->
+      <div class="form-group">
+        <label for="last_name" class="control-label">
+          Last name
+        </label>
+
+        <input type="text" id="last_name" name="last_name" placeholder="Last name" class="form-control" value="<%= @user.last_name %>">
+      </div>
+
+      <!-- Label and input for integer1 -->
+      <div class="form-group">
+        <label for="integer1" class="control-label">
+          Integer1
+        </label>
+
+        <input type="text" id="integer1" name="integer1" placeholder="Integer1" class="form-control" value="<%= @user.integer1 %>">
+      </div>
+
+      <!-- Label and input for integer2 -->
+      <div class="form-group">
+        <label for="integer2" class="control-label">
+          Integer2
+        </label>
+
+        <input type="text" id="integer2" name="integer2" placeholder="Integer2" class="form-control" value="<%= @user.integer2 %>">
+      </div>
+
+      <!-- Label and input for integer3 -->
+      <div class="form-group">
+        <label for="integer3" class="control-label">
+          Integer3
+        </label>
+
+        <input type="text" id="integer3" name="integer3" placeholder="Integer3" class="form-control" value="<%= @user.integer3 %>">
+      </div>
+
+      <!-- Label and input for status -->
+      <div class="form-group">
+        <label for="status" class="control-label">
+          Status
+        </label>
+
+        <input type="text" id="status" name="status" placeholder="Status" class="form-control" value="<%= @user.status %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create User
+      </button>
+      or
+      <a href="/users">Cancel</a>
+    </form>
+  </div>
+</div>
